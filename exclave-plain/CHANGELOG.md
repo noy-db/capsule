@@ -1,6 +1,8 @@
 # @noy-db/exclave-plain
 
-## Unreleased
+## 0.10.0-pre.0
+
+First release from `noy-db/capsule`. See `@noy-db/hub` 0.10.0-pre.0 for the line's notes.
 
 - Moved from `noy-db/core` to its own repo, `noy-db/capsule`. No source change; the surface test now reads the capsule surface from the installed `@noy-db/hub` rather than core's checked-in golden.
 
