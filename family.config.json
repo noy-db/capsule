@@ -1,0 +1,19 @@
+{
+  "layout": "flat",
+  "manager": "pnpm",
+  "binds": "@noy-db/hub/capsule",
+  "publishes": true,
+  "gates": [
+    "architecture",
+    "versions-uniform",
+    "declared-deps",
+    "codemod-rows",
+    "check-license",
+    "prose-examples",
+    "changeset-names"
+  ],
+  "localChecks": [
+    "pnpm typecheck:test",
+    "pnpm knip"
+  ]
+}

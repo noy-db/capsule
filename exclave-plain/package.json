@@ -1,0 +1,60 @@
+{
+  "name": "@noy-db/exclave-plain",
+  "version": "0.9.0",
+  "description": "Plaintext capsule for noy-db \u2014 stores rows unencrypted with MAC-bound integrity, for stores where access control lives outside the database",
+  "license": "Apache-2.0",
+  "author": "vLannaAi <vicio@lanna.ai>",
+  "homepage": "https://github.com/noy-db/capsule/tree/main/exclave-plain#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noy-db/capsule.git",
+    "directory": "exclave-plain"
+  },
+  "bugs": {
+    "url": "https://github.com/noy-db/capsule/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/"
+  },
+  "peerDependencies": {
+    "@noy-db/hub": "^0.9.0"
+  },
+  "devDependencies": {
+    "@noy-db/hub": "0.9.0",
+    "@noy-db/ports": "0.9.0",
+    "vitest": "^3.0.0"
+  },
+  "keywords": [
+    "noy-db",
+    "capsule",
+    "exclave",
+    "plaintext",
+    "dynamodb",
+    "iam"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

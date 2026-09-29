@@ -1,0 +1,35 @@
+{
+  "name": "noy-db-capsule",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "test": "vitest run",
+    "typecheck": "pnpm -r typecheck",
+    "typecheck:test": "tsc -p tsconfig.test.json",
+    "version:set": "node scripts/version-set.mjs",
+    "knip": "knip"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.18.0",
+    "knip": "^6.16.1",
+    "semver": "^7.6.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.21.0",
+    "vitest": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noy-db/capsule.git"
+  },
+  "bugs": {
+    "url": "https://github.com/noy-db/capsule/issues"
+  },
+  "homepage": "https://github.com/noy-db/capsule#readme",
+  "license": "Apache-2.0"
+}
