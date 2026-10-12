@@ -77,7 +77,7 @@ Each of these refuses at `createNoydb()` with a `CapsuleNotSupportedError` namin
 | `cipher`, `digest`, `sign`, `codec` | **supported** | the body passes through; hashes and Ed25519 are identical for every capsule |
 | unlock / secrets (`authenticate`) | refused | there is no secret; unlock always succeeds and your store's access control is the authority |
 | key wrapping, DEK export/import (`seal`) | refused | there are no keys to wrap |
-| per-record keys | refused | part of `seal` |
+| per-record keys (`per-record-keys`) | refused | there is no per-record key to wrap |
 | sealed fields (`sealing`) | refused | per-field keys need a key |
 | blind equality search (`deterministic`) | refused | equality search needs a key the store must not have |
 | classified / digest-only fields (`classify`) | refused | needs a key ceremony |

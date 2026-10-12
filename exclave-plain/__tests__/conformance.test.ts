@@ -11,7 +11,22 @@
  * contract, two implementations measured by it — which is the only arrangement
  * where "conforms" means the same thing for both.
  */
-import { runCapsuleConformance } from '@noy-db/ports/capsule'
+import { describe, it, expect } from 'vitest'
+import { runCapsuleConformance, assertGroupRefuses, type ConformanceGroup } from '@noy-db/ports/capsule'
 import * as exclave from '../src/index.js'
 
 runCapsuleConformance(exclave as never, { name: '@noy-db/exclave-plain' })
+
+// ⚠️ runCapsuleConformance checks the prefix posture, not the optional groups;
+// per-group refusal lives in the kit's enclave cases. Asking it here is what
+// catches a MIXED group — one primitive silently working while its siblings
+// refuse (family#168).
+describe('every refused group refuses as a whole', () => {
+  const refused: readonly ConformanceGroup[] = ['sealing', 'deterministic', 'per-record-keys', 'classify']
+  for (const group of refused) {
+    it(`${group}: every primitive refuses`, async () => {
+      expect(exclave.capabilities().has(group)).toBe(false)
+      expect(await assertGroupRefuses(exclave as never, group)).toEqual([])
+    })
+  }
+})

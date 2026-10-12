@@ -53,6 +53,10 @@ export const revokeSealedRecord: Capsule['revokeSealedRecord'] = capsule.revokeS
 export const rotateRecordCek: Capsule['rotateRecordCek'] = capsule.rotateRecordCek
 export const findByDet: Capsule['findByDet'] = capsule.findByDet
 export const queryByDet: Capsule['queryByDet'] = capsule.queryByDet
+export const revealSealedField: Capsule['revealSealedField'] = capsule.revealSealedField
+export const verifyDigestField: Capsule['verifyDigestField'] = capsule.verifyDigestField
+export const verifyTextField: Capsule['verifyTextField'] = capsule.verifyTextField
+export const matchGroupFields: Capsule['matchGroupFields'] = capsule.matchGroupFields
 
 // ─── shared with every capsule ───────────────────────────────────────
 export {
@@ -130,8 +134,6 @@ export const exportDekSet = (): never => refuse('seal')
 export const importDekSet = (): never => refuse('seal')
 export const wrapKey = (): never => refuse('seal')
 export const unwrapKey = (): never => refuse('seal')
-export const wrapCek = (): never => refuse('seal')
-export const unwrapCek = (): never => refuse('seal')
 export const importCek = (): never => refuse('seal')
 export const importTransferKey = (): never => refuse('seal')
 export const importWrappingKey = (): never => refuse('seal') // core#65
@@ -142,6 +144,10 @@ export const recipientWrap = (): never => refuse('seal')
 export const recipientUnwrap = (): never => refuse('seal')
 export const exportRecipientPrivateKeyPkcs8 = (): never => refuse('seal') // core#96
 export const importRecipientKeyPair = (): never => refuse('seal') // core#96
+
+// per-record-keys — no keys, so no per-record key to wrap.
+export const wrapCek = (): never => refuse('per-record-keys')
+export const unwrapCek = (): never => refuse('per-record-keys')
 
 // deterministic — blind equality needs a key the store must not have.
 export const encryptDeterministic = (): never => refuse('deterministic')
@@ -159,3 +165,4 @@ export const deriveClassifyIndexKey = (): never => refuse('classify')
 export const deriveClassifyIndexSalt = (): never => refuse('classify')
 export const deriveVdigSlotKey = (): never => refuse('classify')
 export const pbkdf2VerifyDigest = (): never => refuse('classify')
+export const blindedEqual = (): never => refuse('classify')

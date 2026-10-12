@@ -82,9 +82,13 @@ describe('refusals are typed and name their group', () => {
     ['deriveKey', () => exclave.deriveKey(), 'authenticate'],
     ['wrapKey', () => exclave.wrapKey(), 'seal'],
     ['exportDekSet', () => exclave.exportDekSet(), 'seal'],
+    ['wrapCek', () => exclave.wrapCek(), 'per-record-keys'],
+    ['unwrapCek', () => exclave.unwrapCek(), 'per-record-keys'],
     ['encryptDeterministic', () => exclave.encryptDeterministic(), 'deterministic'],
     ['deriveSealedFieldKey', () => exclave.deriveSealedFieldKey(), 'sealing'],
     ['mintBidxTag', () => exclave.mintBidxTag(), 'classify'],
+    ['pbkdf2VerifyDigest', () => exclave.pbkdf2VerifyDigest(), 'classify'],
+    ['blindedEqual', () => exclave.blindedEqual(), 'classify'],
   ]
 
   for (const [name, call, group] of cases) {

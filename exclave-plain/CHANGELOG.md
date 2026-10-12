@@ -1,5 +1,14 @@
 # @noy-db/exclave-plain
 
+## Unreleased
+
+Follows hub's capsule contract change (family#168, core#191, core#192). Needs `@noy-db/hub` 0.10.0-pre.2.
+
+- `pbkdf2VerifyDigest` and `blindedEqual` are classify-group primitives, and both refuse with `classify`.
+- `wrapCek` and `unwrapCek` refuse with `per-record-keys` instead of `seal`. `authenticate` and `seal` are posture groups, enforced by the `enclave-`/`exclave-` package-name rule, so no primitive is tagged to them.
+- Exports `revealSealedField`, `verifyDigestField`, `verifyTextField` and `matchGroupFields`, bound from `makeCapsule()` like the rest of hub's plumbing.
+- Every refusal is a `CapsuleNotSupportedError`; the deprecated `EnclaveNotSupportedError` is not thrown.
+
 ## 0.10.0-pre.0
 
 First release from `noy-db/capsule`. See `@noy-db/hub` 0.10.0-pre.0 for the line's notes.
