@@ -1,8 +1,8 @@
 # @noy-db/exclave-plain
 
-## Unreleased
+## 0.10.0-pre.2
 
-Follows hub's capsule contract change (family#168, core#191, core#192).
+Follows hub's capsule contract change (family#168, core#191, core#192). Needs `@noy-db/hub` 0.10.0-pre.2.
 
 - The `@noy-db/hub` peer narrows from `^0.9.0 || ^0.10.0-pre.0` to `^0.10.0-pre.2`. The new exports and the `per-record-keys` group don't exist below pre.2, so the package can't typecheck against an older hub.
 - `pbkdf2VerifyDigest` and `blindedEqual` are classify-group primitives, and both refuse with `classify`.
