@@ -116,10 +116,11 @@ export const plainPrimitives: CapsulePrimitives = {
     return base64ToBuffer(data)
   },
 
-  // ─── seal: refused — there are no keys to wrap ──────────────────────
   generateDEK: nullKey,
-  wrapCek: () => refuse('seal'),
-  unwrapCek: () => refuse('seal'),
+
+  // ─── per-record-keys: refused — there are no keys to wrap ───────────
+  wrapCek: () => refuse('per-record-keys'),
+  unwrapCek: () => refuse('per-record-keys'),
 
   // ─── deterministic: refused — equality search needs a key ───────────
   encryptDeterministic: () => refuse('deterministic'),
@@ -134,6 +135,8 @@ export const plainPrimitives: CapsulePrimitives = {
   mintBidxTag: () => refuse('classify'),
   openVdigPayload: () => refuse('classify'),
   sealVdigPayload: () => refuse('classify'),
+  pbkdf2VerifyDigest: () => refuse('classify'),
+  blindedEqual: () => refuse('classify'),
 
   // ─── encoding: shared, identical to every capsule ───────────────────
   bufferToBase64,
